@@ -7,7 +7,7 @@ const whitelist = process.env.ORIGINS ? process.env.ORIGINS.split(',') :
 const corsOptions = {
     origin: function (origin, callback) {
 
-        solicitud
+        console.log("Origin",origin,whitelist);
         if (whitelist.length === 0 || whitelist.indexOf(origin) !== -1
             || !origin || whitelist[0] === '*') {
 
