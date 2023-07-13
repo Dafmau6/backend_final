@@ -1,15 +1,13 @@
 require('dotenv').config();
 const cors = require('cors');
-const whitelist = process.env.ORIGINS ? process.env.ORIGINS.split(',') :
-    [];
+const whitelist = process.env.ORIGINS ? process.env.ORIGINS.split(',') : [];
 
 
 const corsOptions = {
     origin: function (origin, callback) {
 
         console.log("Origin",origin,whitelist);
-        if (whitelist.length === 0 || whitelist.indexOf(origin) !== -1
-            || !origin || whitelist[0] === '*') {
+        if (whitelist.length === 0 || whitelist.indexOf(origin) !== -1 || !origin || whitelist[0] === '*') {
 
             callback(null, true);
         } else {
